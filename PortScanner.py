@@ -10,12 +10,19 @@ import colored
 
 
 def get_ttl(ip_address):
-    proc = subprocess.Popen(["/usr/bin/ping -c 1 %s" % ip_address, ""], stdout=subprocess.PIPE, shell=True)
-    (out,err) = proc.communicate()
-    out = out.split()
-    out = out[12].decode('utf-8')
-    ttl_value = re.findall(r"\d{1,3}", out)[0]
-    return ttl_value
+    try:
+        proc = subprocess.Popen(["/usr/bin/ping", "-c", "1", ip_address], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = proc.communicate()
+        if proc.returncode != 0:
+            print(colored.fg('red') + "\n[!] Error ejecutando el comando ping.\n" + colored.attr('reset'))
+            sys.exit(1)
+        out = out.split()
+        out = out[12].decode('utf-8')
+        ttl_value = re.findall(r"\d{1,3}", out)[0]
+        return ttl_value
+    except Exception as e:
+        print(colored.fg('red') + f"\n[!] Error: {str(e)}\n" + colored.attr('reset'))
+        sys.exit(1)
 
 def get_os(ttl):
     ttl = int(ttl)
@@ -27,8 +34,9 @@ def get_os(ttl):
         return "Not Found"
 
 def escanear_puertos(objetivo):
-    print(colored.fg('green') + "\n[+] Targeted: " + colored.fg('red') + objetivo + colored.attr('reset'))
-    print(colored.fg('green') + "[+] (TTL -> %s): " % (ttl) + colored.fg('red') + "%s\n" % os_name + colored.attr('reset'))
+    print(colored.fg('green') + "\n[+] Autor: " + colored.fg('blue') + "Anonymous17" + colored.attr('reset'))
+    print(colored.fg('green') + "[+] Targeted: " + colored.fg('red') + objetivo + colored.attr('reset'))
+    print(colored.fg('green') + "[+] (TTL -> %s): " % (ttl) + colored.fg('yellow') + "%s\n" % os_name + colored.attr('reset'))
 
     try:
         for port in range(1, 65536):
@@ -41,7 +49,13 @@ def escanear_puertos(objetivo):
                 open_ports.append(port)
             s.close()
             if port == 65535:
-                print(colored.fg('magenta') + "\n\n[+] Lista de puertos abiertos:" + colored.fg('48'), open_ports, "\n")
+                print(colored.fg('magenta') + "\n\n[+] Lista de puertos abiertos:" + colored.fg('48'), open_ports)
+
+        # Mostrar servicios y versiones
+        if open_ports:
+            print(colored.fg('cyan') + "[+] Información de servicios y versiones:\n" + colored.attr('reset'))
+            for port in open_ports:
+                get_service_info(objetivo, port)
 
     except KeyboardInterrupt:
         print(colored.fg('red') + "\n\n[!] Saliendo...\n" + colored.attr('reset'))
@@ -52,6 +66,22 @@ def escanear_puertos(objetivo):
     except socket.error:
         print(colored.fg('red') + "\n\n[!] No se pudo conectar al objetivo.\n" + colored.attr('reset'))
         sys.exit(1)
+
+def get_service_info(ip, port):
+    try:
+        proc = subprocess.Popen(["nmap", "-p", str(port), "--open", "-sV", ip], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = proc.communicate()
+        if proc.returncode != 0:
+            print(colored.fg('red') + "\n[!] Error ejecutando el comando nmap.\n" + colored.attr('reset'))
+            sys.exit(1)
+        output_lines = out.decode('utf-8').split('\n')
+        for line in output_lines:
+            if 'SERVICE' in line or 'PORT' in line:
+                continue
+            if 'open' in line:
+                print(colored.fg('blue') + "  [+]" + colored.fg('yellow'), line.strip() + colored.attr('reset'))
+    except Exception as e:
+        print(colored.fg('red') + f"\n[!] Error: {str(e)}\n" + colored.attr('reset'))
 
 if __name__ == "__main__":
 
@@ -66,4 +96,5 @@ if __name__ == "__main__":
 
     objetivo = socket.gethostbyname(sys.argv[1])
     escanear_puertos(objetivo)
+    print(colored.fg('green') + f"\n[*] Evidencia guardado en" + colored.fg('red') + " Targeted.txt\n" + colored.attr('reset'))
 
