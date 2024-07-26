@@ -2,14 +2,6 @@
 
 Este repositorio contiene dos scripts de Python para escanear puertos en una máquina objetivo. Cada script utiliza diferentes métodos para realizar el escaneo de puertos y tiene su propia implementación. 
 
-## Contenido
-
-- [Descripción](#descripción)
-- [Requisitos](#requisitos)
-- [Uso](#uso)
-- [Script 1: Escaneo de puertos sencillo](#script-1-escanear-puertos-sencillo)
-- [Script 2: Escaneo de puertos con threading](#script-2-escanear-puertos-con-threading)
-
 ## Descripción
 
 1. **Script 1**: Realiza un escaneo de puertos secuencial en un rango de puertos (1-65535) para una máquina objetivo especificada.
