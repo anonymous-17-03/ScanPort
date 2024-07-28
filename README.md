@@ -1,55 +1,55 @@
 # PortScanner
 
-Este es un script en Python para escanear puertos abiertos en un objetivo específico y determinar el sistema operativo basado en el valor TTL (Time To Live)
+Este es un script de Python para escanear puertos abiertos en una dirección IP objetivo y obtener información sobre los servicios y versiones que se están ejecutando en esos puertos. Además, el script detecta el sistema operativo de la máquina objetivo basándose en el valor TTL (Time to Live).
 
-## Descripción
+## Características
 
-El script realiza las siguientes funciones:
+- Escaneo de puertos del 1 al 65535.
+- Detección del sistema operativo objetivo (Linux o Windows) basado en TTL.
+- Información de servicios y versiones utilizando `nmap`.
+- Salida de información formateada y coloreada en la terminal.
+- Guardado de la evidencia en un archivo `Targeted.txt`.
 
-1. **Obtener el TTL (Time To Live)**: Utiliza el comando `ping` para obtener el valor TTL de la IP objetivo.
-2. **Determinar el Sistema Operativo**: Basado en el valor TTL, intenta identificar el sistema operativo del objetivo.
-3. **Escaneo de Puertos**: Escanea los puertos del 1 al 65535 para identificar cuáles están abiertos.
+## Dependencias y Requisitos
 
-## Dependencias
+Asegúrate de tener instaladas las siguientes herramientas en tu sistema:
 
-El script requiere los siguientes módulos de Python:
-
+- Python 3
 - `re`
 - `socket`
 - `subprocess`
 - `sys`
 - `colored`
+- nmap
 
-Puedes instalar el módulo `colored` usando pip:
+## Instalación
 
-```sh
-pip install colored
-```
+1. Clona este repositorio en tu máquina local y asigna permisos de ejecución al script:
 
-## Ejemplo de uso:
-
-![Resultado con nmap](img1.png)
-
-## Uso
-
-1. Clonar el repositorio:
-    
-    ```sh
+    ```bash
     git clone https://github.com/anonymous-17-03/ScanPort.git
     cd ScanPort
-    ```
-
-2. Asignar permisos de ejecución al script:
-    
-    ```sh
     chmod +x PortScanner.py
     ```
 
-3. Para ejecutar el script, utiliza el siguiente comando:
-    
-    ```sh
-    ./PortScanner.py <objetivo>
+2. Instala las dependencias requeridas:
+
+    ```bash
+    pip install colored
     ```
+
+## Uso
+
+Ejecuta el script con el siguiente comando, reemplazando `<objetivo>` con la dirección IP que deseas escanear:
+
+```bash
+python3 PortScanner.py <objetivo>
+```
+
+## Ejemplo de Salida
+A continuación, se muestra un ejemplo de cómo se ve la salida del script al ejecutarlo:
+
+![Resultado con nmap](img1.png)
 
 ## Notas
 
