@@ -49,7 +49,7 @@ python3 PortScanner.py <objetivo>
 ## Ejemplo de Salida
 A continuación, se muestra un ejemplo de cómo se ve la salida del script al ejecutarlo:
 
-![Resultado con nmap](img1.png)
+![Resultado con nmap](img.png)
 
 ## Notas
 
