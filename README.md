@@ -1,6 +1,6 @@
 # PortScanner
 
-Este es un script en Python para escanear puertos abiertos en un objetivo específico y determinar el sistema operativo basado en el valor TTL (Time To Live).
+Este es un script en Python para escanear puertos abiertos en un objetivo específico y determinar el sistema operativo basado en el valor TTL (Time To Live)
 
 ## Descripción
 
