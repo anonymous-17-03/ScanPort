@@ -12,18 +12,13 @@ Este es un script de Python para escanear puertos abiertos en una dirección IP 
 - Salida de información formateada y coloreada en la terminal.
 - Guardado de la evidencia en un archivo `Targeted.txt`.
 
-## Dependencias y Requisitos
+## Requisitos
 
 Asegúrate de tener instaladas las siguientes herramientas en tu sistema:
 
-- Python 3
-- `re`
-- `socket`
-- `subprocess`
-- `sys`
-- `colored`
-- `nmap`
-- `whatweb`
+- Python 3.x
+- Módulos de Python: `re`, `socket`, `subprocess`, `sys`, `colored`
+- Herramientas externas: `nmap`, `whatweb`
 
 ## Instalación
 
