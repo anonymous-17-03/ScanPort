@@ -37,8 +37,25 @@ Asegúrate de tener instaladas las siguientes herramientas en tu sistema:
 
 2. Instala las dependencias requeridas:
 
-    ```bash
+    - Instalación en un Entorno Virtual: Es recomendable utilizar un entorno virtual para evitar conflictos de dependencias con otros proyectos y mantener un ambiente de desarrollo limpio. Para crear un entorno virtual e instalar colored:
+
+    - Crea un entorno virtual en el directorio del proyecto:
+
+    ```sh
+    python3 -m venv env
+    ```
+
+    - Activa el entorno virtual:
+
+    ```sh
+    source env/bin/activate
     pip install colored
+    ```
+
+    - Para desactivar el entorno virtual una vez hayas terminado:
+
+    ```sh
+    deactivate
     ```
 
 3. Asegúrate de tener instalados `nmap` y `whatweb` en tu sistema. Puedes instalarlos usando el gestor de paquetes de tu sistema operativo. Por ejemplo, en Debian/Ubuntu puedes usar:
