@@ -110,7 +110,7 @@ def escanear_puertos(objetivo, file):
     file.write(colored.fg('magenta') + "[!] Escaneo de puertos:\n" + colored.attr('reset') + "\n")
 
     try:
-        for port in range(1, 65535):
+        for port in range(1, 65536):
             print(colored.fg('red') + "  [+]" + colored.fg('blue'), "Port:", port, "/ 65535 " + colored.attr('reset'), end="\r")
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             socket.setdefaulttimeout(1)
