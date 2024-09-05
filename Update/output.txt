@@ -1,6 +1,0 @@
-[38;5;2m
-[+] Autor: [38;5;4mAnonymous17[0m
-[38;5;2m[+] Targeted: [38;5;1m172.29.66.75[0m
-[38;5;2m[+] (TTL -> 64): [38;5;3mLinux[0m
-[38;5;5m[!] Escaneo de puertos (socket):
-[0m
