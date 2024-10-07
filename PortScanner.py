@@ -91,7 +91,6 @@ top_1000_ports = [
     65000, 65129, 65389
 ]
 
-
 def get_ttl(ip_address):
     try:
         proc = subprocess.Popen(["/usr/bin/ping", "-c", "1", ip_address], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -268,4 +267,3 @@ if __name__ == "__main__":
     with open(output_file, 'w') as file:
         escanear_puertos(objetivo, file)
     print(colored.fg('green') + f"\n[*] Evidencia guardada en" + colored.fg('red') + f" {output_file}" + colored.attr('reset') + "\n")
-

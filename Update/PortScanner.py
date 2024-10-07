@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 #coding: utf-8
 
@@ -395,4 +394,3 @@ def scan_nmap(output, ip, ports, add):
 if __name__ == "__main__":
     open_ports = []
     main()
-
