@@ -2,6 +2,7 @@
 
 Este es un script de Python para escanear puertos abiertos en una dirección IP objetivo y obtener información sobre los servicios y versiones que se están ejecutando en esos puertos. Además, el script detecta el sistema operativo de la máquina objetivo basándose en el valor TTL (Time to Live). También verifica vulnerabilidades comunes en los servicios de FTP, SSH y HTTP.
 
+
 ## Características
 
 - Escaneo de puertos del 1 al 65535.
