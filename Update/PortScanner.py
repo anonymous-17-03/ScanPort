@@ -170,8 +170,8 @@ def check_ssh_vulnerability(ip, port, file):
                 version = version_match.group(1).decode('utf-8')
                 version_number = float(version)
                 if version_number <= 7.7:
-                    print(colored.fg('red') + "  [!] SSH Vulnerable: Enumeración de usuarios " + colored.attr('reset'))
-                    file.write(colored.fg('red') + "  [!] SSH Vulnerable: Enumeración de usuarios " + colored.attr('reset') + "\n")
+                    print(colored.fg('red') + "  [!] SSH posiblemente vulnerable: Enumeración de usuarios " + colored.attr('reset'))
+                    file.write(colored.fg('red') + "  [!] SSH posiblemente vulnerable: Enumeración de usuarios " + colored.attr('reset') + "\n")
                 else:
                     print(colored.fg('green') + "  [+] SSH parece seguro contra enumeración de usuarios  " + colored.attr('reset'))
                     file.write(colored.fg('green') + "  [+] SSH parece seguro contra enumeración de usuarios  " + colored.attr('reset') + "\n")
