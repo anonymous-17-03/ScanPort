@@ -188,7 +188,7 @@ def check_ssh_vulnerability(ip, port, file):
 def check_http_technologies(ip, port, file):
     try:
         proc = subprocess.Popen(["whatweb", f"http://{ip}:{port}"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        out, err = proc.communicate(timeout=10)
+        out, err = proc.communicate(timeout=15)
         if proc.returncode == 0:
             output = out.decode('utf-8').strip()
             if output:
