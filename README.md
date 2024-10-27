@@ -12,7 +12,7 @@ Este es un script de Python para escanear puertos abiertos en una dirección IP 
 - Comprobación de vulnerabilidades en servicios de FTP y SSH.
 - Detección de tecnologías HTTP utilizando `whatweb`.
 - Salida de información formateada y coloreada en la terminal.
-- Guardado de la evidencia en un archivo `Targeted.txt`.
+- Guardado de la evidencia en un archivo `output.txt`.
 
 ## Requisitos
 
