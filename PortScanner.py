@@ -300,7 +300,6 @@ def main():
     args = parser.parse_args()
 
     global ttl, os_name
-
     objetivo = args.ip
     ttl = get_ttl(objetivo)
     os_name = get_os(ttl)
