@@ -294,8 +294,8 @@ def main():
         formatter_class=CustomHelpFormatter)
     parser.add_argument('-i', '--ip', required=True, help=color_blue + "Dirección IP del objetivo (ej: --ip 192.168.0.1)" + reset)
     parser.add_argument('-t', '--top-ports', type=int, choices=[10, 100, 1000, 65535], default=65535, help=color_blue + "Número de puertos a escanear: 10, 100, 1000, 65535" +reset)
-    parser.add_argument('-s', '--scan', type=int, choices=[1, 2, 3], default=2, help=color_blue + "Escanear con: 1 = netcat, 2 = socket, 3 = nmap" + reset)
-    parser.add_argument('-a', '--add', choices=['V','C'], nargs='+', help=color_blue + "Pruebas adicionales (ej: -a V C): V = version, C = check vuln" + reset)
+    parser.add_argument('-s', '--scan', type=int, choices=[1, 2], default=2, help=color_blue + "Escanear con: 1 = netcat, 2 = socket" + reset)
+    parser.add_argument('-a', '--add', choices=['V','C'], nargs='+', help=color_blue + "Adicionales (ej: -a V C): V = version, C = check vuln" + reset)
     parser.add_argument('-o', '--output', default="output.txt", help=color_blue + "Archivo de salida (ej: -o output.txt)" + reset)
     args = parser.parse_args()
 
@@ -322,8 +322,8 @@ def main():
         scan_nc(args.output, args.ip, ports, args.add)
     elif args.scan == 2:
         scan_socket(args.output ,args.ip, ports, args.add)
-    elif args.scan == 3:
-        scan_nmap(args.output, args.ip, ports, args.add)
+    # elif args.scan == 3:
+    #     scan_nmap(args.output, args.ip, ports, args.add)
 
 def scan_nc(output, ip, ports, add):
     current_ports = 0
@@ -388,8 +388,8 @@ def scan_socket(output, ip, ports, add):
         escanear_puertos(ip, ports, file, add)
     print(colored.fg('green') + f"\n[*] Evidencia guardada en" + colored.fg('red') + f" {output}" + colored.attr('reset') + "\n")
 
-def scan_nmap(output, ip, ports, add):
-    print("[!] Pronto disponible...")
+# def scan_nmap(output, ip, ports, add):
+#     print("[!] Pronto disponible...")
 
 if __name__ == "__main__":
     open_ports = []
