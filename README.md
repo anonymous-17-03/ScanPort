@@ -33,7 +33,7 @@ Asegúrate de tener instaladas las siguientes herramientas en tu sistema:
 
 2. Instala las dependencias requeridas:
 
-    - Instalación en un Entorno Virtual: Es recomendable utilizar un entorno virtual para evitar conflictos de dependencias con otros proyectos y mantener un ambiente de desarrollo limpio. Para crear un entorno virtual e instalar colored:
+    - Instalación en un Entorno Virtual: Es recomendable utilizar un entorno virtual para evitar conflictos de dependencias con otros proyectos y mantener un ambiente de desarrollo limpio.
 
     - Crea un entorno virtual en el directorio del proyecto:
 
