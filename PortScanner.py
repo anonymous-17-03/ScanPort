@@ -282,7 +282,7 @@ def get_service_info(ip, port, file):
                         port_info = parts[0]
                         service_info = parts[1]
                         version_info = ' '.join(parts[2:])
-                        formatted_line = f"{port_info:<8} {service_info:<8} {version_info}"
+                        formatted_line = f"{port_info:<10} {service_info:<10} {version_info}"
                         print(colored.fg('blue') + "  [+] " + colored.fg('yellow') + formatted_line[:8] + " " + colored.fg('red') + formatted_line[8:16] + " " + colored.fg(48) + formatted_line[16:] + colored.attr('reset'))
                         file.write(colored.fg('blue') + "  [+] " + colored.fg('yellow') + formatted_line[:8] + " " + colored.fg('red') + formatted_line[8:16] + " " + colored.fg(48) + formatted_line[16:] + colored.attr('reset') + "\n")
     except Exception as e:
