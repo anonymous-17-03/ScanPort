@@ -1,8 +1,0 @@
-1. Usar vanderas como -i 192.168.43.1 --ip, -o archivo.txt, -t 10 --top-ports 10, -s 1 (nc), --scan 2 (sockat puerto a puerto) --scan 3 (nmap optimizado)
-2. Plantillas --top-ports (10,100,1000 y 65535) para los 3 modos de scan (nc,sockat,nmap)
-3. Todos los puertos -p- y -p 22 (un port)
-4. Tipos de escaneo:
-  - nc
-  - sockat
-  - nmap optimizado (nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 192.168.43.231)
-5. Poner nombre de donde guardar archivo -o
